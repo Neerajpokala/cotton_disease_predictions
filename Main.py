@@ -26,6 +26,7 @@ def predict_image_class(model, img_array):
 def main():
     #st.title('Cotton Disease Detection')
     st.markdown("<h1 style='text-align: center; color: skyblue; font-size: 40px;'>CNN FOR COTTON DISEASE DETECTION</h1>", unsafe_allow_html=True)
+    st.markdown("Convolutional Neural Networks (CNNs) are a class of deep neural networks that are particularly effective for image analysis tasks. They are inspired by the organization of the animal visual cortex, where individual neurons respond to specific features of the visual field.CNNs consist of multiple layers, including convolutional layers, pooling layers, and fully connected layers. Each layer performs a specific operation on the input data, and the network learns to extract hierarchical representations of features from the input image.")
 
 
     page = st.sidebar.selectbox("Choose a page", ["CNN Explanation", "Image Inference"])
@@ -36,7 +37,6 @@ def main():
 
     elif page == "Image Inference":
         st.header("Image Inference")
-        st.markdown("Convolutional Neural Networks (CNNs) are a class of deep neural networks that are particularly effective for image analysis tasks. They are inspired by the organization of the animal visual cortex, where individual neurons respond to specific features of the visual field.CNNs consist of multiple layers, including convolutional layers, pooling layers, and fully connected layers. Each layer performs a specific operation on the input data, and the network learns to extract hierarchical representations of features from the input image.")
 
 
         if uploaded_file is not None:
