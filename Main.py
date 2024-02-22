@@ -29,7 +29,7 @@ def main():
     page = st.sidebar.selectbox("Choose a page", ["CNN Explanation", "Image Inference"])
 
     if page == "CNN Explanation":
-        st.markdown("<h1 style='text-align: center; color: skyblue; font-size: 40px;'>CNN FOR COTTON DISEASE DETECTION</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center; color: white; font-size: 20px;'>Introduction to CNNs for Image Analysis:</h1>", unsafe_allow_html=True)
         st.write("Explanation of the CNN model used for cotton disease detection goes here.")
 
     elif page == "Image Inference":
