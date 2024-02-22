@@ -32,7 +32,7 @@ def main():
         st.markdown("<h1 style='text-align: left; color: white; font-size: 20px;'>Introduction to CNNs for Image Analysis:</h1>", unsafe_allow_html=True)
         st.markdown("Convolutional Neural Networks (CNNs) are a class of deep neural networks that are particularly effective for image analysis tasks. They are inspired by the organization of the animal visual cortex, where individual neurons respond to specific features of the visual field.")
         st.markdown("CNNs consist of multiple layers, including convolutional layers, pooling layers, and fully connected layers. Each layer performs a specific operation on the input data, and the network learns to extract hierarchical representations of features from the input image.")
-    
+        st.markdown("<h1 style='text-align: left; color: white; font-size: 20px;'>Architecture of a Typical CNN for Image Classification:</h1>", unsafe_allow_html=True)
     elif page == "Image Inference":
         st.header("Image Inference")
         st.write("Upload an image of a cotton leaf or plant to detect if it's diseased or fresh.")
