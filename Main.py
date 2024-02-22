@@ -24,20 +24,19 @@ def predict_image_class(model, img_array):
     return class_labels[preds[0]]
 
 def main():
-    #st.title('Cotton Disease Detection')
-    st.markdown("<h1 style='text-align: center; color: skyblue; font-size: 40px;'>CNN FOR COTTON DISEASE DETECTION</h1>", unsafe_allow_html=True)
-    st.markdown("Convolutional Neural Networks (CNNs) are a class of deep neural networks that are particularly effective for image analysis tasks. They are inspired by the organization of the animal visual cortex, where individual neurons respond to specific features of the visual field.CNNs consist of multiple layers, including convolutional layers, pooling layers, and fully connected layers. Each layer performs a specific operation on the input data, and the network learns to extract hierarchical representations of features from the input image.")
-
+    st.title('Cotton Disease Detection')
 
     page = st.sidebar.selectbox("Choose a page", ["CNN Explanation", "Image Inference"])
 
     if page == "CNN Explanation":
-        st.header("Introduction to CNNs for Image Analysis:")
+        st.header("CNN for Cotton Disease Detection")
         st.write("Explanation of the CNN model used for cotton disease detection goes here.")
 
     elif page == "Image Inference":
         st.header("Image Inference")
+        st.write("Upload an image of a cotton leaf or plant to detect if it's diseased or fresh.")
 
+        uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
         if uploaded_file is not None:
             # Display the uploaded image
