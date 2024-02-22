@@ -24,12 +24,12 @@ def predict_image_class(model, img_array):
     return class_labels[preds[0]]
 
 def main():
-    st.title('Cotton Disease Detection')
-
+    #st.title('Cotton Disease Detection')
+    st.markdown("<h1 style='text-align: center; color: skyblue; '>CNN FOR COTTON DISEASE DETECTION </h1>", unsafe_allow_html=True)
     page = st.sidebar.selectbox("Choose a page", ["CNN Explanation", "Image Inference"])
 
     if page == "CNN Explanation":
-        st.header("CNN for Cotton Disease Detection")
+        st.markdown("<h1 style='text-align: center; color: skyblue; font-size: 40px;'>CNN FOR COTTON DISEASE DETECTION</h1>", unsafe_allow_html=True)
         st.write("Explanation of the CNN model used for cotton disease detection goes here.")
 
     elif page == "Image Inference":
