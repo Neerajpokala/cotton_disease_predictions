@@ -34,7 +34,13 @@ def main():
         st.markdown("CNNs consist of multiple layers, including convolutional layers, pooling layers, and fully connected layers. Each layer performs a specific operation on the input data, and the network learns to extract hierarchical representations of features from the input image.")
         st.markdown("<h1 style='text-align: left; color: white; font-size: 20px;'>Architecture of a Typical CNN for Image Classification:</h1>", unsafe_allow_html=True)
         st.image('CNN.jpg', use_column_width=True)
-        st.markdown("1.**Input Layer**: The input to the CNN is the raw pixel values of the input image.")
+        st.markdown("1. **Input Layer:** The input to the CNN is the raw pixel values of the input image.")
+        st.markdown("2. **Convolutional Layers:** Convolutional layers are the building blocks of CNNs. Each convolutional layer applies a set of filters (also known as kernels) to the input image to detect features such as edges, textures, and patterns. These filters are learned during the training process. Convolutional layers are typically followed by activation functions (e.g., ReLU) to introduce non-linearity.")
+        st.markdown("3. **Pooling Layers:** Pooling layers are used to reduce the spatial dimensions of the feature maps produced by the convolutional layers, which helps in reducing computational complexity and controlling overfitting. Common pooling operations include max pooling and average pooling.")
+        st.markdown("4. **Flattening:** After several convolutional and pooling layers, the feature maps are flattened into a vector to be fed into the fully connected layers.")
+        st.markdown("5. **Fully Connected Layers:** Fully connected layers, also known as dense layers, take the flattened feature vector as input and perform classification based on learned features. These layers enable the network to learn complex relationships between features extracted by the convolutional layers.")
+        st.markdown("6. **Output Layer:** The output layer produces the final predictions. For classification tasks like cotton disease prediction, the output layer typically consists of one neuron per class, with a softmax activation function to convert raw scores into probabilities.")
+    
     
     elif page == "Image Inference":
         st.header("Image Inference")
