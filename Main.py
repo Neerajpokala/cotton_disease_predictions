@@ -34,6 +34,7 @@ def main():
         st.markdown("CNNs consist of multiple layers, including convolutional layers, pooling layers, and fully connected layers. Each layer performs a specific operation on the input data, and the network learns to extract hierarchical representations of features from the input image.")
         st.markdown("<h1 style='text-align: left; color: white; font-size: 20px;'>Architecture of a Typical CNN for Image Classification:</h1>", unsafe_allow_html=True)
         st.image('CNN.jpg', use_column_width=True)
+        st.markdown("1.**Input Layer**: The input to the CNN is the raw pixel values of the input image.")
     
     elif page == "Image Inference":
         st.header("Image Inference")
