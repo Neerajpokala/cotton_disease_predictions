@@ -25,7 +25,8 @@ def predict_image_class(model, img_array):
 
 def main():
     #st.title('Cotton Disease Detection')
-    st.markdown("<h1 style='text-align: center; color: skyblue; '>CNN FOR COTTON DISEASE DETECTION</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: skyblue; font-size: 20px;'>CNN FOR COTTON DISEASE DETECTION</h1>", unsafe_allow_html=True)
+
 
     page = st.sidebar.selectbox("Choose a page", ["CNN Explanation", "Image Inference"])
 
