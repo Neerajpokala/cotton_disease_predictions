@@ -31,12 +31,14 @@ def main():
     page = st.sidebar.selectbox("Choose a page", ["CNN Explanation", "Image Inference"])
 
     if page == "CNN Explanation":
-        st.header("CNN for Cotton Disease Detection")
+        st.header("Introduction to CNNs for Image Analysis:")
         st.write("Explanation of the CNN model used for cotton disease detection goes here.")
 
     elif page == "Image Inference":
         st.header("Image Inference")
-        st.write("Upload an image of a cotton leaf or plant to detect if it's diseased or fresh.")
+        st.write("Convolutional Neural Networks (CNNs) are a class of deep neural networks that are particularly effective for image analysis tasks. They are inspired by the organization of the animal visual cortex, where individual neurons respond to specific features of the visual field.
+
+CNNs consist of multiple layers, including convolutional layers, pooling layers, and fully connected layers. Each layer performs a specific operation on the input data, and the network learns to extract hierarchical representations of features from the input image.")
 
         uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
