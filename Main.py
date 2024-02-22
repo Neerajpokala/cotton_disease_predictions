@@ -40,7 +40,8 @@ def main():
         st.markdown("4. **Flattening:** After several convolutional and pooling layers, the feature maps are flattened into a vector to be fed into the fully connected layers.")
         st.markdown("5. **Fully Connected Layers:** Fully connected layers, also known as dense layers, take the flattened feature vector as input and perform classification based on learned features. These layers enable the network to learn complex relationships between features extracted by the convolutional layers.")
         st.markdown("6. **Output Layer:** The output layer produces the final predictions. For classification tasks like cotton disease prediction, the output layer typically consists of one neuron per class, with a softmax activation function to convert raw scores into probabilities.")
-    
+        st.markdown("<h1 style='text-align: left; color: white; font-size: 20px;'>Conclusion:</h1>", unsafe_allow_html=True)  
+        st.markdown(" CNNs have revolutionized the field of computer vision and are widely used for various tasks, including image classification, object detection, and image segmentation. The hierarchical feature learning capability of CNNs makes them particularly well-suited for analyzing complex visual data such as images. In the context of cotton disease prediction, CNNs can learn to extract relevant features from input images and classify them into different disease categories, helping farmers detect and mitigate crop diseases more effectively.")
     
     elif page == "Image Inference":
         st.header("Image Inference")
