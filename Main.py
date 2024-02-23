@@ -2,8 +2,11 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import pickle
+import random
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import img_to_array
+
+
 
 def load_model(model_path):
     with open(model_path, 'rb') as f:
@@ -48,7 +51,18 @@ def main():
         st.write("Upload an image of a cotton leaf or plant to detect if it's diseased or fresh.")
 
         uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
-
+        cotton_diseases = [
+                            "Bacterial blight",
+                            "Cotton leaf curl virus",
+                            "Cotton boll rot",
+                            "Crown gall",
+                            "Leaf spot",
+                            "Fusarium wilt",
+                            "Verticillium wilt",
+                            "Cotton leaf crumple",
+                            "Alternaria leaf spot",
+                            "Angular leaf spot"
+                        ]
         if uploaded_file is not None:
             # Display the uploaded image
             image = Image.open(uploaded_file)
@@ -60,6 +74,10 @@ def main():
             img_array = preprocess_image(uploaded_file)
             prediction = predict_image_class(model, img_array)
             st.success(f"Prediction: {prediction}")
+            if prediction in ['diseased cotton leaf', 'diseased cotton plant']:
+                st.write(random.choice(cotton_diseases))
+            else:
+                st.write("Fresh leaf")
 
 if __name__ == "__main__":
     main()
