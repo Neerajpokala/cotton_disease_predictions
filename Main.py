@@ -1,10 +1,9 @@
 import streamlit as st
-from PIL import Image
 import numpy as np
+from PIL import Image
 import pickle
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.preprocessing.image import img_to_array
-import random
 
 def load_model(model_path):
     with open(model_path, 'rb') as f:
@@ -22,33 +21,28 @@ def predict_image_class(model, img_array):
     preds = model.predict(img_array)
     preds = np.argmax(preds, axis=1)
     class_labels = ['diseased cotton leaf', 'diseased cotton plant', 'fresh cotton leaf', 'fresh cotton plant']
-    predicted_class = class_labels[preds[0]]
-    return predicted_class
-
-def generate_random_disease_names(num_names=5):
-    cotton_diseases = [
-        "Bacterial blight",
-        "Cotton leaf curl virus",
-        "Cotton boll rot",
-        "Crown gall",
-        "Leaf spot",
-        "Fusarium wilt",
-        "Verticillium wilt",
-        "Cotton leaf crumple",
-        "Alternaria leaf spot",
-        "Angular leaf spot"
-    ]
-    
-    return random.sample(cotton_diseases, num_names)
+    return class_labels[preds[0]]
 
 def main():
-    # Your Streamlit code
+    #st.title('Cotton Disease Detection')
     st.markdown("<h1 style='text-align: left; color: skyblue; font-size: 40px; '>CNN FOR COTTON DISEASE DETECTION </h1>", unsafe_allow_html=True)
     page = st.sidebar.selectbox("Choose a page", ["CNN Explanation", "Image Inference"])
 
     if page == "CNN Explanation":
-        # Your explanation code
-
+        st.markdown("<h1 style='text-align: left; color: white; font-size: 20px;'>Introduction to CNNs for Image Analysis:</h1>", unsafe_allow_html=True)
+        st.markdown("Convolutional Neural Networks (CNNs) are a class of deep neural networks that are particularly effective for image analysis tasks. They are inspired by the organization of the animal visual cortex, where individual neurons respond to specific features of the visual field.")
+        st.markdown("CNNs consist of multiple layers, including convolutional layers, pooling layers, and fully connected layers. Each layer performs a specific operation on the input data, and the network learns to extract hierarchical representations of features from the input image.")
+        st.markdown("<h1 style='text-align: left; color: white; font-size: 20px;'>Architecture of a Typical CNN for Image Classification:</h1>", unsafe_allow_html=True)
+        st.image('CNN.jpg', use_column_width=True)
+        st.markdown("1. **Input Layer:** The input to the CNN is the raw pixel values of the input image.")
+        st.markdown("2. **Convolutional Layers:** Convolutional layers are the building blocks of CNNs. Each convolutional layer applies a set of filters (also known as kernels) to the input image to detect features such as edges, textures, and patterns. These filters are learned during the training process. Convolutional layers are typically followed by activation functions (e.g., ReLU) to introduce non-linearity.")
+        st.markdown("3. **Pooling Layers:** Pooling layers are used to reduce the spatial dimensions of the feature maps produced by the convolutional layers, which helps in reducing computational complexity and controlling overfitting. Common pooling operations include max pooling and average pooling.")
+        st.markdown("4. **Flattening:** After several convolutional and pooling layers, the feature maps are flattened into a vector to be fed into the fully connected layers.")
+        st.markdown("5. **Fully Connected Layers:** Fully connected layers, also known as dense layers, take the flattened feature vector as input and perform classification based on learned features. These layers enable the network to learn complex relationships between features extracted by the convolutional layers.")
+        st.markdown("6. **Output Layer:** The output layer produces the final predictions. For classification tasks like cotton disease prediction, the output layer typically consists of one neuron per class, with a softmax activation function to convert raw scores into probabilities.")
+        st.markdown("<h1 style='text-align: left; color: white; font-size: 20px;'>Conclusion:</h1>", unsafe_allow_html=True)  
+        st.markdown(" CNNs have revolutionized the field of computer vision and are widely used for various tasks, including image classification, object detection, and image segmentation. The hierarchical feature learning capability of CNNs makes them particularly well-suited for analyzing complex visual data such as images. In the context of cotton disease prediction, CNNs can learn to extract relevant features from input images and classify them into different disease categories, helping farmers detect and mitigate crop diseases more effectively.")
+    
     elif page == "Image Inference":
         st.header("Image Inference")
         st.write("Upload an image of a cotton leaf or plant to detect if it's diseased or fresh.")
@@ -66,14 +60,6 @@ def main():
             img_array = preprocess_image(uploaded_file)
             prediction = predict_image_class(model, img_array)
             st.success(f"Prediction: {prediction}")
-
-            # Generate random disease names if prediction is diseased
-            if prediction in ['diseased cotton leaf', 'diseased cotton plant']:
-                st.write("The detected cotton is diseased.")
-                st.write("Random names of cotton diseases:")
-                disease_names = generate_random_disease_names()
-                for name in disease_names:
-                    st.write(f"- {name}")
 
 if __name__ == "__main__":
     main()
