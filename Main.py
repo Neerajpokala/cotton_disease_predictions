@@ -75,9 +75,8 @@ def main():
             prediction = predict_image_class(model, img_array)
             st.success(f"Prediction: {prediction}")
             if prediction in ['diseased cotton leaf', 'diseased cotton plant']:
-                st.Write(f"Disease name is {random.choice(cotton_diseases)}")
-            else:
-                st.write("Fresh leaf")
+                st.write(f"Disease name is {random.choice(cotton_diseases)}")
+        
 
 if __name__ == "__main__":
     main()
